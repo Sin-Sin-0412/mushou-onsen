@@ -166,11 +166,12 @@ function adjustCamera(width, height) {
     targetZ = lerp(config.desktop.z, config.ultrawide.z, t);
   }
 
-  if (aspect > 2.5) {
+  if (aspect > 2.2) {
     const vFovRad = (config.ultrawide.fov * Math.PI) / 180;
     const hFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * maxAspect);
 
-    targetFov = (2 * Math.atan(Math.tan(hFovRad / 2) / aspect) * 180) / Math.PI;
+    const dynamicZoom = Math.max(0.6, 1.3 - (aspect * 0.17)); 
+    targetFov *= dynamicZoom;
 
     targetX = config.ultrawide.x;
     targetY = config.ultrawide.y;
