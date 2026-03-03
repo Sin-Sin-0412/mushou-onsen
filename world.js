@@ -2,7 +2,6 @@ import * as THREE from "three";
 import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { colorCorrectionPass } from "./main.js";
 import * as BufferGeometryUtils from "three/addons/utils/BufferGeometryUtils.js";
 import { loadingFinished } from "./animation.js";
