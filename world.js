@@ -30,7 +30,7 @@ export function initWorld(canvas) {
 
   
   gsap.to(camera.position, {
-    y: "+=0.05",
+    y: "+=0.03",
     duration: 2.5,
     repeat: -1,
     yoyo: true,

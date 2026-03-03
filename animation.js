@@ -81,7 +81,7 @@ const updateRipple = () => {
 
 
 gsap.to(panel, {
-  y: "+=5", 
+  y: "+=3", 
   duration: 2.5,
   repeat: -1,
   yoyo: true,
