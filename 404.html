@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found | 霧消温泉</title>
+  
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Shippori+Mincho:wght@500&display=swap");
+
+    :root {
+      --bg-color: #70a379; 
+      --text-color: #ffffff;
+      --font-mincho: "Shippori Mincho", serif;
+      --font-gothic: "Nunito", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-gothic);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 100;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    p {
+      font-family: var(--font-mincho);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+    }
+
+    .back-link {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      padding-bottom: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+      border-bottom: 1px solid rgba(255, 255, 255, 1);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>404</h1>
+    <p>もうちょっとで温泉街です。</p>
+
+    <a href="/" class="back-link">温泉街へ</a>
+  </div>
+</body>
+</html>

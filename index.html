@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>霧消温泉 | Mushou Onsen</title>
+  
+  <meta name="description" content="現実との接続。光と音、空気の層に包まれた曖昧な世界。">
+  
+  <meta property="og:title" content="霧消温泉 | Mushou Onsen">
+  <meta property="og:description" content="現実との接続。光と音、空気の層に包まれた曖昧な世界。">
+  <meta property="og:image" content="image/ogp.jpg"> <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.com/">
+  <meta property="og:site_name" content="霧消温泉">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="霧消温泉 | Mushou Onsen">
+  
+  <meta name="theme-color" content="#70a379">
+
+  <link rel="icon" href="image/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple.png">
+</head>
+    <title>温泉街 3D Project</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+          "gsap": "https://unpkg.com/gsap@3.12.5/index.js",
+          "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.19/+esm"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <body>
+      <canvas id="canvas"></canvas>
+
+      <div id="js-loader" class="loader">
+        <div class="loader-inner">
+          <span class="loader-text">霧消温泉</span>
+  
+        </div>
+      </div>
+
+      <div class="fixed-ui">
+        <button id="js-sound-btn" class="sound-btn" aria-label="Sound Toggle">
+          <span class="sound-label">ON</span>
+        </button>
+
+        <nav class="menu-top">
+          <ul class="menu-list">
+            <li>
+              <button class="menu-item active" data-section="mado">マド</button>
+            </li>
+            <li>
+              <button class="menu-item" data-section="kiroku">キロク</button>
+            </li>
+            <li>
+              <button class="menu-item" data-section="kojin">コジン</button>
+            </li>
+            <li>
+              <button class="menu-item" data-section="tsushin">ツーシン</button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="title-bottom">
+          <h1>霧消温泉<span class="title-text-sub">Digital Archives</span></h1>
+        </div>
+      </div>
+
+      <main id="js-panel" class="content-panel">
+        <div class="panel-scroll-area">
+          <section id="kiroku" class="content-section">
+            <div class="ripple-wrapper">
+              <div class="inner">
+                <h2 class="section-title">キロク</h2>
+                <div class="work-item">
+                  <div class="work-img">
+                    <a tabindex="-1" class="work-img-link">
+                      <img
+                        src="image/work00.jpg"
+                        alt="Project: 霧消温泉"
+                        class="work-img"
+                      />
+                    </a>
+                  </div>
+                  <h3 class="work-name">[霧消温泉]</h3>
+                  <p class="work-lead">Three.js / Blockbench / SVG Filter / Real-time Lighting Sync etc</p>
+                  <p class="work-desc">
+                    現実との接続。光と音、空気の層に包まれた曖昧な世界
+                  </p>
+                </div>
+
+                <div class="work-item">
+                  <div class="work-img">
+                    <a href="https://am1-room.netlify.app/" target="_blank" class="work-img-link">
+                      <img
+                        src="image/work01.jpg"
+                        alt="Project: 暗夜客室1:00am"
+                        class="work-img"
+                      />
+                    </a>
+                  </div>
+                  <h3 class="work-name">[暗夜客室1:00am]</h3>
+                  <p class="work-lead">Three.js / Blockbench / Glitch Shader</p>
+                  <p class="work-desc">
+                    真夜中の温泉宿。静寂の中に潜むわずかな不穏。現実とワイヤードの曖昧な境界
+                  </p>
+                </div>
+
+                <div class="work-item">
+                  <div class="work-img">
+                    <a href="https://omoiro-kidou.netlify.app/" target="_blank" class="work-img-link">
+                      <img
+                        src="image/work02.jpg"
+                        alt="Project: 思色軌道"
+                        class="work-img"
+                      />
+                    </a>
+                  </div>
+                  <h3 class="work-name">[思色軌道]</h3>
+                  <p class="work-lead">Three.js / WebGL / Blockbench</p>
+                  <p class="work-desc">
+                    夕暮れを走る都電。遠い日の憧憬を、箱庭のような3D空間に閉じ込める
+                  </p>
+                </div>
+
+                <div class="work-item">
+                  <div class="work-img">
+                    <a href="https://polipale.netlify.app/" target="_blank" class="work-img-link">
+                      <img
+                        src="image/work03.jpg"
+                        alt="Project: PoliParle"
+                        class="work-img"
+                      />
+                    </a>
+                  </div>
+                  <h3 class="work-name">[PoliPale]</h3>
+                  <p class="work-lead">Antigravity / React / TypeScript / Color Theory Algorithm</p>
+                  <p class="work-desc">
+                    低ポリゴンモデルの色彩を数学的に調和させる
+                  </p>
+                </div>
+
+                <ul class="past-works">
+                  <li><a href="#">Old Project 01</a></li>
+                  <li><a href="#">Old Project 02</a></li>
+                  <li>and more...</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="kojin" class="content-section">
+            <div class="ripple-wrapper">
+              <div class="inner">
+                <h2 class="section-title">コジン</h2>
+                <div class="profile-main">
+                  <p class="profile-name">[NAME]</p>
+                  <p class="profile-lead">Three.js / WebGL / Blockbench etc</p>
+                  <p class="profile-text">
+                    ウェブデザイナー / デジタルワールド構築。<br />
+                    複数の商用サイト制作を経て、独自の3D表現を模索している。<br />
+                    ブラウザ上に、手触りのある静寂とノスタルジーを生み出すこと。
+                  </p>
+                </div>
+
+                <div class="influence-list">
+                  <h3 class="sub-title">Influences<span style="font-size: 0.7em; opacity: 0.6;">(A Selection)</span></h3>
+                  <dl>
+                    <dt>Sound</dt>
+                    <dd>Shoegaze(My Bloody Valentine, Slowdive, 17歳とベルリンの壁) </dd>
+                    <dt>Cinema/Anime</dt>
+                    <dd>
+                      『リリイ・シュシュのすべて』, 『スワロウテイル』,『serial experiments lain』
+                    </dd>
+                    <dt>illustration</dt>
+                    <dd>永井博</dd>
+                    <dt>Atmosphere</dt>
+                    <dd>Liminal Space, Dreamcore</dd>
+                  </dl>
+                </div>
+
+                <div class="character">
+                  <h3 class="sub-title">Character</h3>
+                  <p class="character-text">
+                    [ 小鮒 アキラ / Akira Kobuna ]<br>
+                    この世界の住人。ただそこにいる。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="tsushin" class="content-section">
+            <div class="ripple-wrapper">
+              <div class="inner">
+                <h2 class="section-title">ツーシン</h2>
+                <div class="contact-info">
+                  <p class="contact-desc">
+                    お問い合わせ、仕事のご依頼はメールまたはSNSのメッセージにて。<br>
+                    通常三日以内に返信します。
+                  </p>
+                  <div class="email-wrapper">
+                    <button
+                      id="js-copy-btn"
+                      class="copy-btn"
+                      aria-label="Copy Email"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect
+                          x="9"
+                          y="9"
+                          width="13"
+                          height="13"
+                          rx="2"
+                          ry="2"
+                        ></rect>
+                        <path
+                          d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                        ></path>
+                      </svg>
+                      <span class="copy-feedback">Copied!</span>
+                    </button>
+                    <p id="js-email" class="email-address">info.shinya.3d[at]gmail.com</p>
+                  </div>
+                </div>
+                <div class="sns-links">
+                  <ul class="sns-ul">
+                    <li><a href="https://x.com/sinsin_chaos" target="_blank">X (Twitter)</a></li>
+                    <li><a href="https://bsky.app/profile/shinyaxxx.bsky.social" target="_blank">Bluesky</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <svg style="display: none">
+        <defs>
+          <filter id="distortion-filter">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.01 0.1"
+              numOctaves="1"
+              result="warp"
+            />
+            <feDisplacementMap
+              xChannelSelector="R"
+              yChannelSelector="G"
+              scale="30"
+              in="SourceGraphic"
+              in2="warp"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      <svg style="display: none">
+        <filter id="loader-distortion">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.01 0.01"
+            numOctaves="1"
+            result="noise"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="0"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+
+      <script type="module" src="main.js"></script>
+      <script type="module" src="animation.js"></script>
+    </body>
+  </body>
+</html>
