@@ -227,8 +227,12 @@ body {
 }
 
 .ripple-wrapper {
-  opacity: 0; 
+  opacity: 0;
   will-change: filter, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .panel-scroll-area::-webkit-scrollbar {

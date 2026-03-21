@@ -1,5 +1,7 @@
 import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm";
 
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 const soundBtn = document.querySelector('#js-sound-btn');
 const soundLabel = soundBtn.querySelector('.sound-label');
 
@@ -73,7 +75,13 @@ let isPanelOpen = false;
 let isAnimating = false;       
 
 
+let _lastRippleTime = 0;
 const updateRipple = () => {
+  if (isSafari) {
+    const now = performance.now();
+    if (now - _lastRippleTime < 33) return; 
+    _lastRippleTime = now;
+  }
   const val = parseFloat(disp.getAttribute('scale'));
   turb.setAttribute('baseFrequency', `0.01 ${0.01 + val * 0.0002}`);
 };
