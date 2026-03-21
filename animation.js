@@ -45,7 +45,12 @@ function playNextBuffer() {
   currentSource = source;
 }
 
-loadSound('audio/river3.ogg'); 
+loadSound('audio/river3.ogg');
+
+const audioSrc = (new Audio()).canPlayType('audio/ogg') 
+  ? 'audio/river3.ogg' 
+  : 'audio/river3.mp3'; 
+loadSound(audioSrc);
 
 soundBtn.addEventListener('click', async () => {
   if (audioCtx.state === 'suspended') await audioCtx.resume();
