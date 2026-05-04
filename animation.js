@@ -200,6 +200,12 @@ menuItems.forEach(item => {
   });
 });
 
+document.addEventListener('click', (e) => {
+  if (!isPanelOpen || isAnimating) return;
+  if (!panel.contains(e.target) && !e.target.closest('.fixed-ui')) {
+    switchSection('mado');
+  }
+});
 
 const copyBtn = document.querySelector('#js-copy-btn');
 const emailText = document.querySelector('#js-email');
