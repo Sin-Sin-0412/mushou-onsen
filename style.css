@@ -294,7 +294,7 @@ body {
   display: block;
   object-fit: cover;
   filter: grayscale(100%) brightness(0.8);
-  transition: filter 0.8s ease;
+  transition: filter 0.4s ease;
   opacity: 0.8;
 }
 
