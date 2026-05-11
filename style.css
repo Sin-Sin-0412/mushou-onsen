@@ -8,6 +8,7 @@
   --text-hover: rgba(255, 255, 255, 0.832);
   --text-sub: rgba(68, 70, 86, 0.906);
   --text-panel-sub: #f49fbbad;
+  --text-panel-repost: #ebffa4ad;
   --font-en: "Nunito", sans-serif;
   --font-jp:
     "Shippori Mincho", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
@@ -323,6 +324,11 @@ body {
   color: var(--text-panel-sub);
   margin: 0px;
 }
+
+.work-lead.repost{
+  color: var(--text-panel-repost);
+}
+
 .profile-text, .character-text {
   font-family: var(--font-jp);
 }
