@@ -1,29 +1,44 @@
 <!doctype html>
 <html lang="ja">
   <head>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>霧消温泉 | Mushou Onsen</title>
-  
-  <meta name="description" content="現実との接続。光と音、空気の層に包まれた曖昧な世界。">
-  
-  <meta property="og:title" content="霧消温泉 | Mushou Onsen">
-  <meta property="og:description" content="現実との接続。光と音、空気の層に包まれた曖昧な世界。">
-  <meta property="og:image" content="https://mushou-onsen.netlify.app/image/ogp.jpg"> <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mushou-onsen.netlify.app/">
-  <meta property="og:site_name" content="霧消温泉">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="霧消温泉 | Mushou Onsen">
-  
-  <meta name="theme-color" content="#70a379">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="image/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="image/apple.png">
-</head>
+      <title>霧消温泉 | Mushou Onsen</title>
+
+      <meta
+        name="description"
+        content="現実との接続。光と音、空気の層に包まれた曖昧な世界。"
+      />
+
+      <meta property="og:title" content="霧消温泉 | Mushou Onsen" />
+      <meta
+        property="og:description"
+        content="現実との接続。光と音、空気の層に包まれた曖昧な世界。"
+      />
+      <meta
+        property="og:image"
+        content="https://mushou-onsen.netlify.app/image/ogp.jpg"
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://mushou-onsen.netlify.app/" />
+      <meta property="og:site_name" content="霧消温泉" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="霧消温泉 | Mushou Onsen" />
+
+      <meta name="theme-color" content="#70a379" />
+
+      <link rel="icon" href="image/favicon.ico" sizes="any" />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="image/favicon.svg"
+      />
+      <link rel="apple-touch-icon" sizes="180x180" href="image/apple.png" />
+    </head>
     <title>温泉街 3D Project</title>
     <link rel="stylesheet" href="style.css" />
 
@@ -39,323 +54,478 @@
     </script>
   </head>
   <body>
-    <body>
-      <canvas id="canvas"></canvas>
+    <canvas id="canvas"></canvas>
 
-      <div id="js-loader" class="loader">
-        <div class="loader-inner">
-          <span class="loader-text">霧消温泉</span>
-  
-        </div>
+    <div id="js-loader" class="loader">
+      <div class="loader-inner">
+        <span class="loader-text">霧消温泉</span>
       </div>
+    </div>
 
-      <div class="fixed-ui">
-        <button id="js-sound-btn" class="sound-btn" aria-label="Sound Toggle">
-          <span class="sound-label">ON</span>
-        </button>
+    <div class="fixed-ui">
+      <button id="js-sound-btn" class="sound-btn" aria-label="Sound Toggle">
+        <span class="sound-label">ON</span>
+      </button>
 
-        <nav class="menu-top">
-          <ul class="menu-list">
-            <li>
-              <button class="menu-item active" data-section="mado">マド</button>
-            </li>
-            <li>
-              <button class="menu-item" data-section="kiroku">キロク</button>
-            </li>
-            <li>
-              <button class="menu-item" data-section="kojin">コジン</button>
-            </li>
-            <li>
-              <button class="menu-item" data-section="tsushin">ツーシン</button>
-            </li>
-          </ul>
-        </nav>
+      <nav class="menu-top">
+        <ul class="menu-list">
+          <li>
+            <button class="menu-item active" data-section="mado">マド</button>
+          </li>
+          <li>
+            <button class="menu-item" data-section="kiroku">キロク</button>
+          </li>
+          <li>
+            <button class="menu-item" data-section="kojin">コジン</button>
+          </li>
+          <li>
+            <button class="menu-item" data-section="tsushin">ツーシン</button>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="title-bottom">
-          <h1>霧消温泉<span class="title-text-sub">Digital Archives</span></h1>
-        </div>
+      <div class="title-bottom">
+        <h1>霧消温泉<span class="title-text-sub">Digital Archives</span></h1>
       </div>
+    </div>
 
-      <main id="js-panel" class="content-panel">
-        <div class="panel-scroll-area">
-          <section id="kiroku" class="content-section">
-            <div class="ripple-wrapper">
-              <div class="inner">
-                <h2 class="section-title">キロク</h2>
+    <main id="js-panel" class="content-panel">
+      <div class="panel-scroll-area">
+        <section id="kiroku" class="content-section">
+          <div class="ripple-wrapper">
+            <div class="inner">
+              <h2 class="section-title">キロク</h2>
 
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://naruko-alley.netlify.app/" target="_blank" class="work-img-link">
-                      <img
-                        src="image/work06.jpg"
-                        alt="Project: 鳴言小路"
-                        class="work-img"
-                      />
-                    </a>
+              <div class="kiroku-tabs">
+                <button class="tab-btn active" data-tab="web3d">Web 3D</button>
+                <button class="tab-btn" data-tab="modeling">Modeling</button>
+              </div>
+
+              <div class="kiroku-wrapper">
+                <div id="tab-web3d" class="kiroku-list">
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://naruko-alley.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work06.jpg"
+                          alt="Project: 鳴言小路"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">鳴言小路</h3>
+                    <p class="work-lead">
+                      Three.js / Blockbench / 3D asset 362KB / Solo Chat / etc
+                    </p>
+                    <p class="work-desc">
+                      寂れたアーケード商店街に浮かびあがる、消えゆく言葉のチャット
+                    </p>
                   </div>
-                  <h3 class="work-name">鳴言小路</h3>
-                  <p class="work-lead">Three.js / Blockbench / 3D asset 362KB / Solo Chat /  etc</p>
-                  <p class="work-desc">
-                    寂れたアーケード商店街に浮かびあがる、消えゆく言葉のチャット
-                  </p>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://suien-fishing-pond.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work05.jpeg"
+                          alt="Project: 水煙釣堀"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">水煙釣堀 Idle Idol</h3>
+                    <p class="work-lead">
+                      Three.js / Blockbench / 3D asset 292KB / Real-time Chat /
+                      etc
+                    </p>
+                    <p class="work-desc">
+                      退屈な雨の日の午後。推しがいる空間を共有し、交流するためのウェブサイト
+                    </p>
+                    <p class="work-lead repost">
+                      Reposted by Kureiji Ollie · three.js
+                    </p>
+                  </div>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://shunshu-dandan.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work04.jpg"
+                          alt="Project: 春愁だんだん"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">春愁だんだん</h3>
+                    <p class="work-lead">
+                      Three.js / Blockbench / 3D asset 348KB / Music Player /
+                      etc
+                    </p>
+                    <p class="work-desc">
+                      自然に展開される世界観。アーティストの楽曲を、何ものにも邪魔されない環境でリスニングできる3D空間
+                    </p>
+                  </div>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a tabindex="-1" class="work-img-link">
+                        <img
+                          src="image/work00.jpg"
+                          alt="Project: 霧消温泉"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">霧消温泉</h3>
+                    <p class="work-lead">
+                      Three.js / Blockbench / SVG Filter / Real-time Lighting
+                      Sync / etc
+                    </p>
+                    <p class="work-desc">
+                      現実との接続。光と音、空気の層に包まれた曖昧な世界
+                    </p>
+                  </div>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://am1-room.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work01.jpg"
+                          alt="Project: 暗夜客室1:00am"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">暗夜客室1:00am</h3>
+                    <p class="work-lead">
+                      Three.js / Blockbench / Glitch Shader
+                    </p>
+                    <p class="work-desc">
+                      真夜中の温泉宿。静寂の中に潜むわずかな不穏。現実とワイヤードの曖昧な境界
+                    </p>
+                  </div>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://omoiro-kidou.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work02.jpg"
+                          alt="Project: 思色軌道"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">思色軌道</h3>
+                    <p class="work-lead">
+                      Three.js / WebGL / Blockbench / Real-time Lighting Sync /
+                      etc
+                    </p>
+                    <p class="work-desc">
+                      夕暮れを走る都電。遠い日の憧憬を、箱庭のような3D空間に閉じ込める
+                    </p>
+                    <p class="work-lead repost">Reposted by three.js</p>
+                  </div>
+
+                  <div class="work-item">
+                    <div class="work-img">
+                      <a
+                        href="https://polipale.netlify.app/"
+                        target="_blank"
+                        class="work-img-link"
+                      >
+                        <img
+                          src="image/work03.jpg"
+                          alt="Project: PoliParle"
+                          class="work-img"
+                        />
+                      </a>
+                    </div>
+                    <h3 class="work-name">PoliPale</h3>
+                    <p class="work-lead">
+                      Antigravity / React / TypeScript / Color Theory Algorithm
+                    </p>
+                    <p class="work-desc">
+                      低ポリゴンモデルの色彩を数学的に調和させる
+                    </p>
+                  </div>
+
+                  <ul class="past-works">
+                    <li><a href="#">Old Project 01</a></li>
+                    <li><a href="#">Old Project 02</a></li>
+                    <li>and more...</li>
+                  </ul>
                 </div>
 
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://suien-fishing-pond.netlify.app/" target="_blank" class="work-img-link">
+                <div id="tab-modeling" class="kiroku-list" hidden>
+                  <div
+                    class="work-item model-item"
+                    data-name="メイ"
+                    data-files='[{"type":"video","src":"image/may_01.mp4", "thumb":"image/model01.jpg"},{"type":"video","src":"image/may_02.mp4", "thumb":"image/model01_thum.jpg"}]'
+                  >
+                    <div class="work-img-link model-thumb-link">
                       <img
-                        src="image/work05.jpeg"
-                        alt="Project: 水煙釣堀"
+                        src="image/model01.jpg"
+                        alt="Model: メイ"
                         class="work-img"
                       />
-                    </a>
+                    </div>
+                    <h3 class="work-name">メイ (Guilty Gear)</h3>
+                    <p class="work-lead">Three/js / Blockbench / FanArt</p>
+                    <p class="work-desc">MeshToonMaterialでポリゴン感を抑え、フィギュアにリアルな影が落ちているような質感を表現。</p>
                   </div>
-                  <h3 class="work-name">水煙釣堀 Idle Idol</h3>
-                  <p class="work-lead">Three.js / Blockbench / 3D asset 292KB / Real-time Chat /  etc</p>
-                  <p class="work-desc">
-                    退屈な雨の日の午後。推しがいる空間を共有し、交流するためのウェブサイト
-                  </p>
-                  <p class="work-lead repost">Reposted by Kureiji Ollie · three.js</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://shunshu-dandan.netlify.app/" target="_blank" class="work-img-link">
-                      <img
-                        src="image/work04.jpg"
-                        alt="Project: 春愁だんだん"
-                        class="work-img"
-                      />
-                    </a>
-                  </div>
-                  <h3 class="work-name">春愁だんだん</h3>
-                  <p class="work-lead">Three.js / Blockbench / 3D asset 348KB / Music Player / etc</p>
-                  <p class="work-desc">
-                    自然に展開される世界観。アーティストの楽曲を、何ものにも邪魔されない環境でリスニングできる3D空間
+        <section id="kojin" class="content-section">
+          <div class="ripple-wrapper">
+            <div class="inner">
+              <h2 class="section-title">コジン</h2>
+              <div class="profile-main">
+                <p class="profile-name">シンヤ / Shinya</p>
+                <p class="profile-lead" style="color: var(--text-main-white)">
+                  テクニカルアーティスト / デジタルワールド構築
+                </p>
+                <p class="profile-lead">Three.js / WebGL / Blockbench etc</p>
+                <p class="profile-text">
+                  複数の商用サイト制作を経て、現在は独自の3D世界を構築しています。<br />
+                  ブラウザ上に、手触りのある静寂とノスタルジーを生み出すこと。<br />
+                  このスタイルを、私は*ambiencism(アンビエンシズム)と呼んでいます。<br /><br />
+                </p>
+                <p
+                  class="profile-text"
+                  style="font-style: italic; font-size: 14px"
+                >
+                  *余白と空気感を用い、不在の中に世界の輪郭を描き出す手法。<br />
+                  A practice of tracing the contours of a world within absence,
+                  through negative space and atmosphere.
+                </p>
+              </div>
+
+              <div class="influence-list">
+                <h3 class="sub-title">
+                  Influences<span style="font-size: 0.7em; opacity: 0.6"
+                    >(A Selection)</span
+                  >
+                </h3>
+                <dl>
+                  <dt>Sound</dt>
+                  <dd>
+                    Shoegaze(My Bloody Valentine, Slowdive, 揺らぎ,
+                    17歳とベルリンの壁), etc...
+                  </dd>
+                  <dt>Cinema/Anime</dt>
+                  <dd>
+                    『リリイ・シュシュのすべて』, 『スワロウテイル』,『serial
+                    experiments lain』, etc...
+                  </dd>
+                  <dt>illustration</dt>
+                  <dd>永井博, etc</dd>
+                  <dt>Atmosphere</dt>
+                  <dd>Liminal Space, Dreamcore, etc...</dd>
+                </dl>
+              </div>
+
+              <div class="character">
+                <h3 class="sub-title">Character</h3>
+                <p class="character-text">
+                  [ 小鮒 アキラ / Akira Kobuna ]<br />
+                  この世界の住人。ただそこにいる。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tsushin" class="content-section">
+          <div class="ripple-wrapper">
+            <div class="inner">
+              <h2 class="section-title">ツーシン</h2>
+              <div class="contact-info">
+                <p class="contact-desc">
+                  お問い合わせ、仕事のご依頼はメールまたはSNSのメッセージにて。<br />
+                  通常三日以内に返信します。
+                </p>
+                <p class="contact-desc">
+                  For work inquiries, please email me or send a message on
+                  social media.
+                </p>
+                <div class="email-wrapper">
+                  <button
+                    id="js-copy-btn"
+                    class="copy-btn"
+                    aria-label="Copy Email"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                    <span class="copy-feedback">Copied!</span>
+                  </button>
+                  <p id="js-email" class="email-address">
+                    info.shinya.3d[at]gmail.com
                   </p>
                 </div>
-
-                <div class="work-item">
-                  <div class="work-img">
-                    <a tabindex="-1" class="work-img-link">
-                      <img
-                        src="image/work00.jpg"
-                        alt="Project: 霧消温泉"
-                        class="work-img"
-                      />
-                    </a>
-                  </div>
-                  <h3 class="work-name">霧消温泉</h3>
-                  <p class="work-lead">Three.js / Blockbench / SVG Filter / Real-time Lighting Sync / etc</p>
-                  <p class="work-desc">
-                    現実との接続。光と音、空気の層に包まれた曖昧な世界
-                  </p>
-                </div>
-
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://am1-room.netlify.app/" target="_blank" class="work-img-link">
-                      <img
-                        src="image/work01.jpg"
-                        alt="Project: 暗夜客室1:00am"
-                        class="work-img"
-                      />
-                    </a>
-                  </div>
-                  <h3 class="work-name">暗夜客室1:00am</h3>
-                  <p class="work-lead">Three.js / Blockbench / Glitch Shader</p>
-                  <p class="work-desc">
-                    真夜中の温泉宿。静寂の中に潜むわずかな不穏。現実とワイヤードの曖昧な境界
-                  </p>
-                </div>
-
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://omoiro-kidou.netlify.app/" target="_blank" class="work-img-link">
-                      <img
-                        src="image/work02.jpg"
-                        alt="Project: 思色軌道"
-                        class="work-img"
-                      />
-                    </a>
-                  </div>
-                  <h3 class="work-name">思色軌道</h3>
-                  <p class="work-lead">Three.js / WebGL / Blockbench / Real-time Lighting Sync / etc</p>
-                  <p class="work-desc">
-                    夕暮れを走る都電。遠い日の憧憬を、箱庭のような3D空間に閉じ込める
-                  </p>
-                  <p class="work-lead repost">Reposted by three.js</p>
-                </div>
-
-                <div class="work-item">
-                  <div class="work-img">
-                    <a href="https://polipale.netlify.app/" target="_blank" class="work-img-link">
-                      <img
-                        src="image/work03.jpg"
-                        alt="Project: PoliParle"
-                        class="work-img"
-                      />
-                    </a>
-                  </div>
-                  <h3 class="work-name">PoliPale</h3>
-                  <p class="work-lead">Antigravity / React / TypeScript / Color Theory Algorithm</p>
-                  <p class="work-desc">
-                    低ポリゴンモデルの色彩を数学的に調和させる
-                  </p>
-                </div>
-
-                <ul class="past-works">
-                  <li><a href="#">Old Project 01</a></li>
-                  <li><a href="#">Old Project 02</a></li>
-                  <li>and more...</li>
+              </div>
+              <div class="sns-links">
+                <ul class="sns-ul">
+                  <li>
+                    <a href="https://x.com/sinsin_chaos" target="_blank"
+                      >X (Twitter)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://bsky.app/profile/shinyaxxx.bsky.social"
+                      target="_blank"
+                      >Bluesky</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
+      </div>
+    </main>
 
-          <section id="kojin" class="content-section">
-            <div class="ripple-wrapper">
-              <div class="inner">
-                <h2 class="section-title">コジン</h2>
-                <div class="profile-main">
-                  <p class="profile-name">シンヤ / Shinya</p>
-                  <p class="profile-lead" style="color: var(--text-main-white);">テクニカルアーティスト / デジタルワールド構築</p>
-                  <p class="profile-lead">Three.js / WebGL / Blockbench etc</p>
-                  <p class="profile-text">
-                    複数の商用サイト制作を経て、現在は独自の3D世界を構築しています。<br/>
-                    ブラウザ上に、手触りのある静寂とノスタルジーを生み出すこと。</br>
-                    このスタイルを、私は*ambiencism(アンビエンシズム)と呼んでいます。</br></br>
-                     <p class="profile-text" style="font-style: italic; font-size: 14px;">
-                    *余白と空気感を用い、不在の中に世界の輪郭を描き出す手法。</br>
-                    A practice of tracing the contours of a world within absence, through negative space and atmosphere.
-                    </p>
-                  </p>
-                </div>
-
-                <div class="influence-list">
-                  <h3 class="sub-title">Influences<span style="font-size: 0.7em; opacity: 0.6;">(A Selection)</span></h3>
-                  <dl>
-                    <dt>Sound</dt>
-                    <dd>Shoegaze(My Bloody Valentine, Slowdive, 揺らぎ, 17歳とベルリンの壁), etc...</dd>
-                    <dt>Cinema/Anime</dt>
-                    <dd>
-                      『リリイ・シュシュのすべて』, 『スワロウテイル』,『serial experiments lain』, etc...
-                    </dd>
-                    <dt>illustration</dt>
-                    <dd>永井博, etc</dd>
-                    <dt>Atmosphere</dt>
-                    <dd>Liminal Space, Dreamcore, etc...</dd>
-                  </dl>
-                </div>
-
-                <div class="character">
-                  <h3 class="sub-title">Character</h3>
-                  <p class="character-text">
-                    [ 小鮒 アキラ / Akira Kobuna ]<br>
-                    この世界の住人。ただそこにいる。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="tsushin" class="content-section">
-            <div class="ripple-wrapper">
-              <div class="inner">
-                <h2 class="section-title">ツーシン</h2>
-                <div class="contact-info">
-                  <p class="contact-desc">
-                    お問い合わせ、仕事のご依頼はメールまたはSNSのメッセージにて。<br>
-                    通常三日以内に返信します。
-                  </p>
-                  <p class="contact-desc">
-                    For work inquiries, please email me or send a message on social media.
-                  </p>
-                  <div class="email-wrapper">
-                    <button
-                      id="js-copy-btn"
-                      class="copy-btn"
-                      aria-label="Copy Email"
-                    >
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <rect
-                          x="9"
-                          y="9"
-                          width="13"
-                          height="13"
-                          rx="2"
-                          ry="2"
-                        ></rect>
-                        <path
-                          d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                        ></path>
-                      </svg>
-                      <span class="copy-feedback">Copied!</span>
-                    </button>
-                    <p id="js-email" class="email-address">info.shinya.3d[at]gmail.com</p>
-                  </div>
-                </div>
-                <div class="sns-links">
-                  <ul class="sns-ul">
-                    <li><a href="https://x.com/sinsin_chaos" target="_blank">X (Twitter)</a></li>
-                    <li><a href="https://bsky.app/profile/shinyaxxx.bsky.social" target="_blank">Bluesky</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-
-      <svg style="position: absolute; width: 0; height: 0; pointer-events: none; visibility: hidden;" aria-hidden="true">
-        <defs>
-          <filter id="distortion-filter" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.01 0.1"
-              numOctaves="1"
-              result="warp"
-            />
-            <feDisplacementMap
-              xChannelSelector="R"
-              yChannelSelector="G"
-              scale="30"
-              in="SourceGraphic"
-              in2="warp"
-            />
-          </filter>
-        </defs>
-      </svg>
-
-      <svg style="position: absolute; width: 0; height: 0; pointer-events: none; visibility: hidden;" aria-hidden="true">
-        <filter id="loader-distortion" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+    <svg
+      style="
+        position: absolute;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        visibility: hidden;
+      "
+      aria-hidden="true"
+    >
+      <defs>
+        <filter
+          id="distortion-filter"
+          x="-20%"
+          y="-20%"
+          width="140%"
+          height="140%"
+          color-interpolation-filters="sRGB"
+        >
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.01 0.01"
+            baseFrequency="0.01 0.1"
             numOctaves="1"
-            result="noise"
+            result="warp"
           />
           <feDisplacementMap
-            in="SourceGraphic"
-            in2="noise"
-            scale="0"
             xChannelSelector="R"
             yChannelSelector="G"
+            scale="30"
+            in="SourceGraphic"
+            in2="warp"
           />
         </filter>
-      </svg>
+      </defs>
+    </svg>
 
-      <script type="module" src="main.js"></script>
-      <script type="module" src="animation.js"></script>
-    </body>
+    <svg
+      style="
+        position: absolute;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        visibility: hidden;
+      "
+      aria-hidden="true"
+    >
+      <filter
+        id="loader-distortion"
+        x="-5%"
+        y="-5%"
+        width="110%"
+        height="110%"
+        color-interpolation-filters="sRGB"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.01 0.01"
+          numOctaves="1"
+          result="noise"
+        />
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="0"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </svg>
+
+    <div id="js-model-modal" class="model-modal" aria-hidden="true">
+      <div class="model-modal-overlay"></div>
+      <div class="model-modal-inner">
+        <button id="js-modal-close" class="modal-close-btn" aria-label="Close">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="modal-main-view"></div>
+        <div class="modal-thumbs"></div>
+        <div class="modal-meta">
+          <h3 class="modal-name"></h3>
+          <p class="modal-desc"></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="animation.js"></script>
   </body>
 </html>

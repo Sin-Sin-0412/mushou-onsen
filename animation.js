@@ -45,11 +45,9 @@ function playNextBuffer() {
   currentSource = source;
 }
 
-loadSound('audio/river3.ogg');
-
-const audioSrc = (new Audio()).canPlayType('audio/ogg') 
-  ? 'audio/river3.ogg' 
-  : 'audio/river3.mp3'; 
+const audioSrc = (new Audio()).canPlayType('audio/ogg')
+  ? 'audio/river3.ogg'
+  : 'audio/river3.mp3';
 loadSound(audioSrc);
 
 soundBtn.addEventListener('click', async () => {
@@ -71,7 +69,6 @@ soundBtn.addEventListener('click', async () => {
 
 const panel = document.querySelector('#js-panel');
 const menuItems = document.querySelectorAll('.menu-item');
-const sections = document.querySelectorAll('.content-section');
 const turb = document.querySelector('#distortion-filter feTurbulence');
 const disp = document.querySelector('#distortion-filter feDisplacementMap');
 
@@ -202,6 +199,7 @@ menuItems.forEach(item => {
 
 document.addEventListener('click', (e) => {
   if (!isPanelOpen || isAnimating) return;
+  if (isModalOpen) return;
   if (!panel.contains(e.target) && !e.target.closest('.fixed-ui')) {
     switchSection('mado');
   }
@@ -242,6 +240,185 @@ if (copyBtn && emailText) {
     });
   });
 }
+
+
+const tabBtns = document.querySelectorAll('.tab-btn');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetTabId = btn.getAttribute('data-tab');
+    const currentActiveTab = document.querySelector('.kiroku-list:not([hidden])');
+
+    if (currentActiveTab && currentActiveTab.id === `tab-${targetTabId}`) return;
+
+    const targetTab = document.getElementById(`tab-${targetTabId}`);
+    if (!targetTab) return;
+
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const tl = gsap.timeline();
+
+    if (currentActiveTab) {
+      gsap.set(currentActiveTab, { filter: 'url(#distortion-filter)' });
+
+      tl.to(currentActiveTab, { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
+        .to(disp, { attr: { scale: 80 }, duration: 0.5, ease: 'power2.inOut', onUpdate: updateRipple }, '<')
+        .call(() => {
+          currentActiveTab.hidden = true;
+          gsap.set(currentActiveTab, { filter: 'none', opacity: 1 });
+          targetTab.hidden = false;
+          gsap.set(targetTab, { filter: 'url(#distortion-filter)', opacity: 0 });
+          gsap.set(disp, { attr: { scale: 80 } });
+        })
+        .to(targetTab, { opacity: 1, duration: 0.6, ease: 'power2.out' })
+        .to(disp, { attr: { scale: 0 }, duration: 0.6, ease: 'power2.out', onUpdate: updateRipple }, '<')
+        .call(() => {
+          gsap.set(targetTab, { filter: 'none' });
+        });
+    } else {
+      targetTab.hidden = false;
+      gsap.set(targetTab, { filter: 'url(#distortion-filter)', opacity: 0 });
+      gsap.set(disp, { attr: { scale: 80 } });
+      tl.to(targetTab, { opacity: 1, duration: 0.6, ease: 'power2.out' })
+        .to(disp, { attr: { scale: 0 }, duration: 0.6, ease: 'power2.out', onUpdate: updateRipple }, '<')
+        .call(() => {
+          gsap.set(targetTab, { filter: 'none' });
+        });
+    }
+  });
+});
+
+
+const modal         = document.querySelector('#js-model-modal');
+const modalOverlay  = modal.querySelector('.model-modal-overlay');
+const modalClose    = modal.querySelector('#js-modal-close');
+const modalMainView = modal.querySelector('.modal-main-view');
+const modalThumbs   = modal.querySelector('.modal-thumbs');
+
+let isModalOpen = false;
+
+function createThumbEl(file, index) {
+  const item = document.createElement('div');
+  item.className = 'modal-thumb-item';
+  item.dataset.index = index;
+
+  const img = document.createElement('img');
+  img.src = file.thumb ?? file.src;
+  img.alt = `file ${index + 1}`;
+  item.appendChild(img);
+  return item;
+}
+
+function switchMainView(file, thumbItems, index) {
+  let newEl;
+
+  if (file.type === 'video') {
+    newEl = document.createElement('video');
+    newEl.autoplay = true;
+    newEl.loop = true;
+    newEl.muted = true;
+    newEl.playsInline = true;
+    newEl.src = file.src; 
+  } else {
+    newEl = document.createElement('img');
+    newEl.src = file.src;
+    newEl.alt = '';
+  }
+
+
+  const currentHeight = modalMainView.offsetHeight;
+  if (currentHeight > 0) {
+    modalMainView.style.minHeight = `${currentHeight}px`;
+  }
+
+  const releaseMinHeight = () => { modalMainView.style.minHeight = ''; };
+  if (file.type === 'video') {
+    newEl.addEventListener('loadedmetadata', releaseMinHeight, { once: true });
+  } else {
+    newEl.addEventListener('load', releaseMinHeight, { once: true });
+  }
+
+  const oldVideo = modalMainView.querySelector('video');
+  if (oldVideo) {
+    oldVideo.pause();
+    oldVideo.src = '';
+  }
+  modalMainView.replaceChildren(newEl);
+
+  if (file.type === 'video') {
+    newEl.play().catch(() => {});
+  }
+
+  thumbItems.forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+}
+
+function openModal(itemEl) {
+  if (isModalOpen) return;
+
+  const files = JSON.parse(itemEl.dataset.files || '[]');
+
+  if (files.length === 0) return;
+
+  modalThumbs.innerHTML = '';
+  const thumbItems = [];
+
+  if (files.length > 1) {
+    files.forEach((file, i) => {
+      const thumb = createThumbEl(file, i);
+      thumb.addEventListener('click', () => {
+        switchMainView(file, thumbItems, i);
+      });
+      modalThumbs.appendChild(thumb);
+      thumbItems.push(thumb);
+    });
+  }
+
+  switchMainView(files[0], thumbItems, 0);
+
+  isModalOpen = true;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeModal() {
+  if (!isModalOpen) return;
+
+  isModalOpen = false;
+
+  const video = modalMainView.querySelector('video');
+  if (video) {
+    video.pause();
+    video.src = '';
+    video.load();
+  }
+
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+document.querySelectorAll('.model-item').forEach(item => {
+  item.querySelector('.model-thumb-link')?.addEventListener('click', () => {
+    openModal(item);
+  });
+});
+
+modalClose.addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeModal();
+});
+
+
+modalOverlay.addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && isModalOpen) closeModal();
+});
 
 
 export function loadingFinished() {
