@@ -363,6 +363,9 @@ body {
   gap: 12px; 
   margin-top: 30px;
   position: relative;
+  padding: 10px;
+  border-top: 1px solid var(--border-white);
+  border-bottom: 1px solid var(--border-white);
 }
 
 .email-address {
@@ -402,7 +405,7 @@ body {
   font-family: var(--font-en);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--text-main);
+  color: var(--text-panel-sub);
   opacity: 0;
   pointer-events: none;
   transform: translateY(5px);
