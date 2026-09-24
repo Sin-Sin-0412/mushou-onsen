@@ -127,7 +127,7 @@ export function initWorld(canvas) {
   const gltfLoader = new GLTFLoader(manager);
   gltfLoader.setDRACOLoader(dracoLoader);
 
-  gltfLoader.load("model/summer00-v3.glb", (gltf) => {
+  gltfLoader.load("model/summer.glb", (gltf) => {
     const model = gltf.scene;
     const scale = 0.5;
     model.scale.set(scale, scale, scale);
