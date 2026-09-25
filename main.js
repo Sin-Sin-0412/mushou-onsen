@@ -17,14 +17,15 @@ export let colorCorrectionPass;
 let clock;
 const isMobile = window.innerWidth <= 768;
 let bokehPass;
+let shadowTimer = 0;
 
 function init() {
   const canvas = document.querySelector("#canvas");
 
   renderer = new THREE.WebGLRenderer({
     canvas: canvas,
-    antialias: true,
-    alpha: true,
+    antialias: false,
+    alpha: false,
     powerPreference: "high-performance",
     stencil: false,
     depth: true,
@@ -198,9 +199,16 @@ function onWindowResize() {
 
 function animate() {
   requestAnimationFrame(animate);
+
   const delta = clock.getDelta();
 
   updateWorld(delta);
+
+  shadowTimer += delta;
+  if (shadowTimer > 1 / 30) {   
+    renderer.shadowMap.needsUpdate = true;
+    shadowTimer = 0;
+  }
 
   composer.render();
 }
