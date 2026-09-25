@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Shippori+Mincho:wght@500&display=swap");
 
 :root {
-  --bg-glass: rgba(54, 67, 71, 0.385);
+  --bg-glass: rgba(54, 67, 71, 0.339);
   --border-white: rgba(255, 255, 255, 0.1);
   --text-main: rgba(61, 63, 75, 0.79);
   --text-main-white: rgba(233, 233, 233, 0.906);
@@ -548,9 +548,7 @@ body {
 .modal-main-view video,
 .modal-main-view img {
   width: 100%;
-  min-width: 100%;
-  height: auto;
-  max-height: 75svh;
+  height: 100%;
   object-fit: contain;
   display: block;
 }

@@ -327,16 +327,23 @@ function switchMainView(file, thumbItems, index) {
   }
 
 
-  const currentHeight = modalMainView.offsetHeight;
-  if (currentHeight > 0) {
-    modalMainView.style.minHeight = `${currentHeight}px`;
-  }
+    // 実際のサイズが分かるまでは無難な比率を仮置きし、ガタつきを防ぐ
+  modalMainView.style.aspectRatio = '4 / 3';
 
-  const releaseMinHeight = () => { modalMainView.style.minHeight = ''; };
+  const applyAspectRatio = (w, h) => {
+    if (w && h) {
+      modalMainView.style.aspectRatio = `${w} / ${h}`;
+    }
+  };
+
   if (file.type === 'video') {
-    newEl.addEventListener('loadedmetadata', releaseMinHeight, { once: true });
+    newEl.addEventListener('loadedmetadata', () => {
+      applyAspectRatio(newEl.videoWidth, newEl.videoHeight);
+    }, { once: true });
   } else {
-    newEl.addEventListener('load', releaseMinHeight, { once: true });
+    newEl.addEventListener('load', () => {
+      applyAspectRatio(newEl.naturalWidth, newEl.naturalHeight);
+    }, { once: true });
   }
 
   const oldVideo = modalMainView.querySelector('video');
