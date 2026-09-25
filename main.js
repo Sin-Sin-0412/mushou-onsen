@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm";
+import gsap from "gsap";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
