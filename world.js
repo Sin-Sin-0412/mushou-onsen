@@ -2,7 +2,6 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { colorCorrectionPass } from "./main.js";
 import * as BufferGeometryUtils from "three/addons/utils/BufferGeometryUtils.js";
 import { loadingFinished } from "./animation.js";
 
@@ -107,9 +106,7 @@ export function initWorld(canvas) {
 
 
   const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath(
-    "https://www.gstatic.com/draco/versioned/decoders/1.5.6/",
-  );
+  dracoLoader.setDecoderPath("/draco/");
 
 
   const dodaiNormal = textureLoader.load("image/Asphalt2.jpg");
