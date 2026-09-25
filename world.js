@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm";
+import gsap from "gsap";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { colorCorrectionPass } from "./main.js";
