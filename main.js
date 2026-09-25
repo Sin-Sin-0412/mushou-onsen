@@ -95,7 +95,7 @@ function init() {
   }
 
   const filmPass = new FilmPass(
-    1.2, //* ノイズ強度
+    0.8, //* ノイズ強度
     false,
   );
   composer.addPass(filmPass);
